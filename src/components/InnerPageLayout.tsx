@@ -1,8 +1,10 @@
+"use client";
+
 import Link from "next/link";
-import { siteConfig } from "@/config/site";
 import { MobileShell, LogoImage, PageTransition, WhatsAppFAB } from "@/components";
 import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { usePreviewConfig } from "@/hooks/usePreviewConfig";
 
 interface InnerPageLayoutProps {
   title: string;
@@ -17,6 +19,10 @@ export default function InnerPageLayout({
   className,
   showLogo = true,
 }: InnerPageLayoutProps) {
+  const resolvedConfig = usePreviewConfig();
+  const brandName = resolvedConfig.brand.name;
+  const brandLogo = resolvedConfig.brand.logo;
+
   return (
     <PageTransition>
       <MobileShell className={cn("gap-6", className)}>
@@ -33,7 +39,8 @@ export default function InnerPageLayout({
         {showLogo && (
           <div className="flex justify-center">
             <LogoImage
-              alt={`${siteConfig.name} logo`}
+              src={brandLogo}
+              alt={`${brandName} logo`}
               size={64}
               rounded
               className="shadow-md"

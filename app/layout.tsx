@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_BASE_URL || "https://fontaneriagarcia.es"
   ),
   title: {
-    default: "Fontanería García - Tenerife Sur",
+    default: "Fontanería García - Tenerife",
     template: "%s | Fontanería García",
   },
-  description: "Servicios de fontanería profesional en Tenerife Sur",
+  description: "Servicios de fontanería profesional en Tenerife",
   openGraph: {
     type: "website",
     locale: "es_ES",
     url: "/",
     siteName: "Fontanería García",
-    title: "Fontanería García - Tenerife Sur",
-    description: "Servicios de fontanería profesional en Tenerife Sur",
+    title: "Fontanería García - Tenerife",
+    description: "Servicios de fontanería profesional en Tenerife",
     images: [
       {
         url: "/og-image.jpg",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fontanería García - Tenerife Sur",
-    description: "Servicios de fontanería profesional en Tenerife Sur",
+    title: "Fontanería García - Tenerife",
+    description: "Servicios de fontanería profesional en Tenerife",
     images: ["/og-image.jpg"],
   },
 };
