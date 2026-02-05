@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { PreviewProvider } from "@/components/PreviewProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,7 +75,9 @@ export default function RootLayout({
         {/* Contenu centré */}
         <div className="relative z-10 min-h-full flex items-center justify-center px-4 py-8">
           <div className="w-full max-w-[420px]">
-            {children}
+            <Suspense fallback={null}>
+              <PreviewProvider>{children}</PreviewProvider>
+            </Suspense>
           </div>
         </div>
       </body>

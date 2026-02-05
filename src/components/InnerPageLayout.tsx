@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MobileShell, LogoImage, PageTransition, WhatsAppFAB } from "@/components";
 import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { usePreviewConfig } from "@/hooks/usePreviewConfig";
+import { useResolvedConfig } from "@/components/PreviewProvider";
 
 interface InnerPageLayoutProps {
   title: string;
@@ -19,7 +19,7 @@ export default function InnerPageLayout({
   className,
   showLogo = true,
 }: InnerPageLayoutProps) {
-  const resolvedConfig = usePreviewConfig();
+  const resolvedConfig = useResolvedConfig();
   const brandName = resolvedConfig.brand.name;
   const brandLogo = resolvedConfig.brand.logo;
 

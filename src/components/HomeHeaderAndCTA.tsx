@@ -24,7 +24,7 @@ import {
   Info,
   PhoneCall,
 } from "lucide-react";
-import { usePreviewConfig } from "@/hooks/usePreviewConfig";
+import { useResolvedConfig } from "@/components/PreviewProvider";
 
 // Map des icônes pour les boutons
 const iconMap: Record<string, typeof Star> = {
@@ -84,7 +84,7 @@ const homeButtons = [
 ];
 
 export default function HomeHeaderAndCTA() {
-  const resolvedConfig = usePreviewConfig();
+  const resolvedConfig = useResolvedConfig();
   const brandName = resolvedConfig.brand.name;
   const brandLogo = resolvedConfig.brand.logo;
 
