@@ -144,44 +144,23 @@ export default function HomeHeaderAndCTA() {
           })}
         </div>
 
-        {/* 3) Carte centrale branding / CTA principale */}
+        {/* 3) Carte centrale branding / CTA principale (bouton seul) */}
         <GlassCard
           variant="strong"
-          className="relative overflow-hidden flex flex-col h-full min-h-[220px] sm:min-h-[260px]"
+          className="relative overflow-hidden flex items-center justify-center py-4"
         >
           {/* Fond métier (bleu/gris) */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-500/40 via-blue-600/40 to-slate-600/40 -z-10" />
 
-          {/* Icône / logo principal */}
-          <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-4">
-            {brandLogo ? (
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="w-full max-w-[85%] h-full flex items-center justify-center">
-                  <LogoImage
-                    src={brandLogo}
-                    alt={`${brandName} logo grande`}
-                    size={256}
-                    className="w-full h-full object-contain shadow-lg"
-                  />
-                </div>
-              </div>
-            ) : (
-              <PhoneCall
-                className="w-20 h-20 sm:w-24 sm:h-24 text-white/90 drop-shadow-xl"
-                aria-hidden="true"
-              />
-            )}
-          </div>
-
-          {/* CTA principal */}
-          <div className="relative z-10 mt-auto pt-2">
+          {/* CTA principal uniquement */}
+          <div className="relative z-10 w-full">
             <PrimaryCTALink
               href={formatTelLink(resolvedConfig.phone)}
               variant="primary"
               external
               className="w-full"
             >
-              <span className="flex items-center justify-center gap-2">
+              <span className="flex items-center justify-center gap-2 py-2">
                 <Phone className="w-5 h-5" />
                 Llamar — Presupuesto gratuito
               </span>
