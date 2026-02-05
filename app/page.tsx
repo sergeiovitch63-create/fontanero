@@ -16,7 +16,7 @@ export default function Home() {
         <p className="text-white/30 text-[10px]">
           Made by{" "}
           <a
-            href="https://publox.es"
+            href="https://www.publox-marketing.com/es"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/40 hover:text-white/60 transition-colors text-[10px] font-normal underline-offset-2 hover:underline"

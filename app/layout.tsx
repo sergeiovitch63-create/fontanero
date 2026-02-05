@@ -69,8 +69,8 @@ export default function RootLayout({
           }}
         />
 
-        {/* Overlay léger pour lisibilité */}
-        <div className="fixed inset-0 -z-10 bg-black/25" />
+        {/* Overlay léger pour lisibilité (plus transparent en mobile) */}
+        <div className="fixed inset-0 -z-10 bg-black/15 sm:bg-black/25" />
 
         {/* Contenu centré */}
         <div className="relative z-10 min-h-full flex items-center justify-center px-4 py-8">
