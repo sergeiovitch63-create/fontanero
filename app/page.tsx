@@ -1,4 +1,5 @@
 import { siteConfig } from "@/config/site";
+import { resolvePreviewConfig } from "@/lib/previewConfig";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ import {
   Flame,
   Zap,
   Info,
+  PhoneCall,
 } from "lucide-react";
 
 // Map des icônes pour les boutons
@@ -86,7 +88,15 @@ const homeButtons = [
   },
 ];
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams?: { name?: string; logo?: string };
+}) {
+  const preview = resolvePreviewConfig(searchParams);
+  const brandName = preview.brand.name;
+  const brandLogo = preview.brand.logo;
+
   return (
     <PageTransition>
       <MobileShell className="gap-6">
@@ -94,7 +104,8 @@ export default function Home() {
         <header className="flex flex-col items-center gap-3 pt-4">
           {/* Logo rond */}
           <LogoImage
-            alt={`${siteConfig.name} logo`}
+            src={brandLogo}
+            alt={`${brandName} logo`}
             size={96}
             rounded
             className="shadow-lg"
@@ -103,7 +114,7 @@ export default function Home() {
           {/* Nom et zone */}
           <div className="text-center">
             <h1 className="text-2xl font-bold text-white mb-1">
-              {siteConfig.name}
+              {brandName}
             </h1>
             <p className="text-white/80 text-sm">{siteConfig.zone}</p>
           </div>
@@ -147,32 +158,42 @@ export default function Home() {
         {/* 3) Carte centrale branding */}
         <GlassCard
           variant="strong"
-          className="text-center relative overflow-hidden"
+          className="relative overflow-hidden flex flex-col items-stretch min-h-[220px] sm:min-h-[260px]"
         >
           {/* Fond métier (bleu/gris) */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-500/40 via-blue-600/40 to-slate-600/40 -z-10" />
-          
-          {/* Grand logo */}
-          <div className="flex justify-center mb-4">
-            <LogoImage
-              alt={`${siteConfig.name} logo grande`}
-              size={120}
-              className="shadow-lg"
-            />
+
+          {/* Icône / logo principal */}
+          <div className="relative z-10 flex-1 flex items-center justify-center">
+            {brandLogo ? (
+              <LogoImage
+                src={brandLogo}
+                alt={`${brandName} logo grande`}
+                size={144}
+                className="shadow-lg"
+              />
+            ) : (
+              <PhoneCall
+                className="w-20 h-20 sm:w-24 sm:h-24 text-white/90 drop-shadow-xl"
+                aria-hidden="true"
+              />
+            )}
           </div>
 
           {/* CTA principal */}
-          <PrimaryCTALink
-            href={formatTelLink(siteConfig.phone)}
-            variant="primary"
-            external
-            className="w-full"
-          >
-            <span className="flex items-center justify-center gap-2">
-              <Phone className="w-5 h-5" />
-              Llamar — Presupuesto gratuito
-            </span>
-          </PrimaryCTALink>
+          <div className="relative z-10 mt-4">
+            <PrimaryCTALink
+              href={formatTelLink(siteConfig.phone)}
+              variant="primary"
+              external
+              className="w-full"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <Phone className="w-5 h-5" />
+                Llamar — Presupuesto gratuito
+              </span>
+            </PrimaryCTALink>
+          </div>
         </GlassCard>
 
         {/* 4) Liste des boutons */}

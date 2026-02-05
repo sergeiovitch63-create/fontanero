@@ -4,7 +4,7 @@ import { generateServiceSlug } from "@/lib/utils";
 export const siteConfig: SiteConfig = {
   // Información básica
   name: "Fontanería García",
-  zone: "Tenerife Sur",
+  zone: "Tenerife",
 
   // Contacto
   phone: "+34 600 000 000",
@@ -171,7 +171,7 @@ export const siteConfig: SiteConfig = {
       },
     ],
     yearsExperience: "10+ años",
-    interventionZone: "Tenerife Sur y alrededores",
+    interventionZone: "Tenerife y alrededores",
   },
 
   // Tema / Colores

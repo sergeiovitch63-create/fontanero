@@ -42,14 +42,24 @@ export default function LogoImage({
       className={cn("relative overflow-hidden", rounded && "rounded-full", className)}
       style={{ width: size, height: size }}
     >
-      <Image
-        src={logoPath}
-        alt={alt}
-        width={size}
-        height={size}
-        className="object-cover"
-        onError={() => setHasError(true)}
-      />
+      {logoPath.startsWith("http") ? (
+        // Pour les prévisualisations avec logo distant, utiliser une balise img simple
+        <img
+          src={logoPath}
+          alt={alt}
+          className="w-full h-full object-cover"
+          onError={() => setHasError(true)}
+        />
+      ) : (
+        <Image
+          src={logoPath}
+          alt={alt}
+          width={size}
+          height={size}
+          className="object-cover"
+          onError={() => setHasError(true)}
+        />
+      )}
     </div>
   );
 }
