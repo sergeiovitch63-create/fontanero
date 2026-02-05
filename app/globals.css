@@ -90,6 +90,56 @@ body {
   color: #ffffff;
 }
 
+/* Animation légère de vibration pour le CTA principal "Llamar" */
+@keyframes callBuzz {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+  5% {
+    transform: translateX(-1px) rotate(-0.4deg);
+  }
+  10% {
+    transform: translateX(1px) rotate(0.4deg);
+  }
+  15% {
+    transform: translateX(-1px) rotate(-0.4deg);
+  }
+  20% {
+    transform: translateX(1px) rotate(0.4deg);
+  }
+  25% {
+    transform: translateX(-1px) rotate(-0.3deg);
+  }
+  30% {
+    transform: translateX(1px) rotate(0.3deg);
+  }
+  35% {
+    transform: translateX(-1px) rotate(-0.2deg);
+  }
+  40% {
+    transform: translateX(1px) rotate(0.2deg);
+  }
+  45% {
+    transform: translateX(0) rotate(0);
+  }
+  50% {
+    transform: translateX(0) rotate(0); /* fin vibration (1s) */
+  }
+  100% {
+    transform: translateX(0) rotate(0); /* 1s pause */
+  }
+}
+
+.call-buzz {
+  animation: callBuzz 2s infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .call-buzz {
+    animation: none !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .glass {
     background: rgba(15, 23, 42, 0.9);

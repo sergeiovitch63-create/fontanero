@@ -158,7 +158,7 @@ export default function HomeHeaderAndCTA() {
               href={formatTelLink(resolvedConfig.phone)}
               variant="primary"
               external
-              className="w-full"
+              className="w-full call-buzz"
             >
               <span className="flex items-center justify-center gap-2 py-2">
                 <Phone className="w-5 h-5" />
