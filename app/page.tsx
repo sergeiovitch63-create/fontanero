@@ -13,13 +13,13 @@ export default function Home() {
       <HomeHeaderAndCTA />
       {/* 5) Footer */}
       <footer className="flex flex-col items-center gap-1 pt-4 pb-2">
-        <p className="text-white/30 text-[10px]">
+        <p className="text-white/60 text-[10px]">
           Made by{" "}
           <a
             href="https://www.publox-marketing.com/es"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/40 hover:text-white/60 transition-colors text-[10px] font-normal underline-offset-2 hover:underline"
+            className="text-white/80 hover:text-white/100 transition-colors text-[10px] font-semibold underline-offset-2 hover:underline"
           >
             PUBLOX
           </a>
